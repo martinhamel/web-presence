@@ -1,0 +1,33 @@
+version: "3.6"
+services:
+  backend:
+    build:
+      context: backend
+      target: dev
+    volumes: 
+      - ./backend/:/app
+    ports: 
+      - 3005:3005
+    environment: 
+      PORT: 3005
+      REDIS_SERVER: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: redispassword
+      TWILIO_SID: ACfbaf9170257714811bafb283d977487f
+      TWILIO_TOKEN: 9d24020d0aa939d5f77fc49ef73ab596
+  frontend:
+    build:
+      context: frontend
+      target: dev
+    volumes: 
+      - ./frontend/:/app
+    ports: 
+      - 3006:3006
+    environment: 
+      PORT: 3006
+      WEB_PRESENCE_URL: 'http://localhost:3005'
+  redis:
+    image: redis
+    ports: 
+      - 6379:6379
+    command: redis-server --requirepass redispassword

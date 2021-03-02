@@ -1,0 +1,99 @@
+.main {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 90vh;
+  margin: 20px;
+}
+
+@media (max-width: 800px) {
+  .main {
+      right: 0px;
+      bottom: 0px;
+      margin: 0;
+      height: 100%;
+      width: fit-content;
+  }
+  .card:global.MuiPaper-root.MuiCard-root {
+      margin: 0;
+      width: 100vw;
+      height: 100%;
+  }
+}
+
+@media (min-width: 800px) {}
+
+.card:global.MuiPaper-root.MuiCard-root,
+.card :global .MuiPaper-root {
+  border-radius: 15px;
+  padding: 0px;
+  padding-bottom: 80px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: rgb(4, 148, 148);
+  padding: 10px;
+  color: beige;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.messages {
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  min-width: 350px;
+}
+
+.messages .message:global.MuiPaper-root {
+  width: fit-content;
+  padding: 10px;
+  margin: 5px 10px;
+}
+
+.user:global.MuiPaper-root {
+  background-color: rgb(82, 143, 143);
+  align-self: flex-start;
+}
+
+.seller:global.MuiPaper-root {
+  background-color: rgb(134, 230, 201);
+  align-self: flex-end;
+}
+
+.newMessage {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: stretch;
+}
+
+.newMessage :global .MuiTextField-root {
+  width: 80%;
+}
+
+.fab:global.MuiFab-root {
+  min-height: 56px;
+}
+
+@keyframes fab {
+  from {
+      transform: rotate(-90deg);
+  }
+}
+
+.fabIcon {
+  animation-name: fab;
+  animation-duration: 500ms;
+}
