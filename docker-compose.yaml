@@ -14,7 +14,7 @@ services:
       REDIS_PORT: 6379
       REDIS_PASSWORD: redispassword
       TWILIO_SID: ACfbaf9170257714811bafb283d977487f
-      TWILIO_TOKEN: 9d24020d0aa939d5f77fc49ef73ab596
+      TWILIO_TOKEN: token
   frontend:
     build:
       context: frontend
@@ -25,7 +25,7 @@ services:
       - 3006:3006
     environment: 
       PORT: 3006
-      WEB_PRESENCE_URL: 'http://localhost:3005'
+      REACT_APP_BACKEND_URL: 'http://localhost:3005'
   redis:
     image: redis
     ports: 
